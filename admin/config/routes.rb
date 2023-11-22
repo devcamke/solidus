@@ -20,6 +20,14 @@ SolidusAdmin::Engine.routes.draw do
   end
 
   admin_resources :orders, except: [:destroy] do
+    resources :adjustments, only: [:index] do
+      collection do
+        delete :destroy
+        put :lock
+        put :unlock
+      end
+    end
+
     resources :line_items, only: [:destroy, :create, :update]
     resource :customer
     resource :ship_address, only: [:show, :edit, :update], controller: "addresses", type: "ship"
