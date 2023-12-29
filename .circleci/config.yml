@@ -306,7 +306,7 @@ jobs:
     executor:
       name: << parameters.database >>
       ruby: << parameters.ruby >>
-    parallelism: &parallelism 3
+    parallelism: 3
     environment:
       DISABLE_ACTIVE_STORAGE: << parameters.paperclip >>
       RAILS_VERSION: "<< parameters.rails >>"
@@ -326,7 +326,7 @@ jobs:
     executor:
       name: << parameters.database >>
       ruby: << parameters.ruby >>
-    parallelism: &parallelism 3
+    parallelism: 3
     environment:
       COVERAGE: 'true'
       COVERAGE_DIR: /tmp/coverage
